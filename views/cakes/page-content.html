@@ -1,0 +1,225 @@
+<div class="col-lg-12">
+                        <h3 class="page-header">Cakes</h3>
+                    </div>
+ <div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="{siteurl}cakes/"><i class="fa fa-home"></i>&nbsp;Home</a>
+                    </li>
+                    <li><a href="{siteurl}cakes/bulk" ><i class="fa fa-upload"></i>&nbsp;Bulk Upload</a>
+                    </li>
+                    <li><a href="{siteurl}cakes/products" ><i class="fa fa-edit"></i>&nbsp;Handel Products</a>
+                    </li>
+                    <li><a href="{siteurl}cakes/downloads" ><i class="fa fa-download"></i>&nbsp;Download Database</a>
+                    </li>
+                    <!--<li><a href="#settings" data-toggle="tab">Settings</a>
+                    </li>-->
+                </ul>
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div class="tab-pane fade in active" id="home">
+                        <h4>CSV UPLOADING RULES</h4>
+                        Below You can see how to fill CSV.
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+</div>
+<!-- /.row -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                First Five Columns 
+                            </div>
+                            <!-- /.panel-heading -->
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                        <thead>
+                                            <tr>
+                                                <th>sku</th>
+                                                <th>status</th>
+                                                <th>name</th>
+                                                <th>description</th>
+                                                <th>manufacturer</th>
+                                                <th>image</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            
+                                            <tr class="gradeU">
+                                                <td>ELRH1</td>
+                                                <td>1</td>
+                                                <td>Choco Lava</td>
+                                                <td class="center">Some description minimum 100 words</td>
+                                                <td class="center">Manufacturer's Name</td>
+                                                <td class="center">["image1.jpg", "image2.jpg"]</td>
+                                            </tr>
+                                            <tr class="gradeU">
+                                                <td>A unique id.</td>
+                                                <td>can be 1/0 1->active</td>
+                                                <td>Name without any special characters.</td>
+                                                <td class="center">-</td>
+                                                <td class="center">-</td>
+                                                <td class="center">has to be the way defined above otherwise will not be accepted.</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- /.panel-body -->
+                        </div>
+                        <!-- /.panel -->
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                
+
+                <!-- /.row -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Next Five Columns 
+                            </div>
+                            <!-- /.panel-heading -->
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                        <thead>
+                                            <tr>
+                                                <th>options</th>
+                                                <th>cp</th>
+                                                <th>quantity</th>
+                                                <th>variant</th>
+                                                <th>occasion</th>
+                                                <th>seo_keywords</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            
+                                            <tr class="gradeU">
+                                                <td>{ "el0.5" : "200" , "el1" : "200" ,  "eg0.5" : "500" , "Midnight" : "0,0" }</td>
+                                                <td>{ "el0.5" : "200" , "el1" : "200" ,  "eg0.5" : "500" , "Midnight" : "0,0" }</td>
+                                                <td>5</td>
+                                                <td class="center">chocolate</td>
+                                                <td class="center">Birthday</td>
+                                                <td class="center">["first", "another"]</td>
+                                            </tr>
+                                            <tr class="gradeU">
+                                                <td>el->eggless, eg->egg, "200"->produnc price, "midnight"->"(0/1, 1->enable), fixed extra charge for midnight delivery"</td>
+                                                <td>this is Cost Price and options is selling price which user sees.</td>
+                                                <td>Quantity of cakes available.</td>
+                                                <td class="center">Mention flavour of cake.</td>
+                                                <td class="center">occasion for which cake is bes suited.</td>
+                                                <td class="center">Has to be of the same way defined above.</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- /.panel-body -->
+                        </div>
+                        <!-- /.panel -->
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+
+                <!-- /.row -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Next Five Columns 
+                            </div>
+                            <!-- /.panel-heading -->
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                        <thead>
+                                            <tr>
+                                                <th>meta_tag_keywords</th>
+                                                <th>meta_tag_description</th>
+                                                <th>product_tags</th>
+                                                <th>availability_region</th>
+                                                <th>discount</th>
+                                                <th>start_discount_date</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            
+                                            <tr class="gradeU">
+                                                <td>["first", "another"]</td>
+                                                <td>Description</td>
+                                                <td>["first", "another"]</td>
+                                                <td>Rohini</td>
+                                                <td class="center">{"el0.5":"200","el1":"200%", "eg0.5":"500", "Midnight":"1,100" }</td>
+                                                <td class="center">15-02-02-05-2014</td>    
+                                            </tr>
+                                            <tr class="gradeU">
+                                                <td>Has to be of the same way defined above.</td>
+                                                <td>-</td>
+                                                <td>Has to be of the same way defined above.</td>
+                                                <td>Region in which cake is available write Delhi for all over Delhi.</td>
+                                                <td class="center">Same as options but here you define discount on every product in Rs and if you use '%' at end then it is in percentage.</td>
+                                                <td class="center">has to follow this format : mm-hh-dd-MM-yyyy
+                                                mm->month, hh->hour, dd->day, MM-month, yyyy->Year</td>    
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- /.panel-body -->
+                        </div>
+                        <!-- /.panel -->
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+
+
+                <!-- /.row -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Last Column
+                            </div>
+                            <!-- /.panel-heading -->
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                        <thead>
+                                            <tr>
+                                                <th>end_discount_date</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            
+                                            <tr class="gradeU">
+                                                <td class="center">15-02-02-06-2014</td>    
+                                            </tr>
+                                            <tr class="gradeU">
+                                                <td class="center">has to follow this format : mm-hh-dd-MM-yyyy
+                                                mm->month, hh->hour, dd->day, MM-month, yyyy->Year</td> 
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- /.panel-body -->
+                        </div>
+                        <!-- /.panel -->
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                

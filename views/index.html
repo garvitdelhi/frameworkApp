@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+        <title>Shiplock Inc. Admin Dashboard</title>
+        
+       
+	<link href="{siteurl}views/css/style.css" rel="stylesheet" type="text/css" />
+	
+	<script src="{siteurl}views/js/jquery.min.js" type="text/javascript"></script>
+	<script src="{siteurl}views/js/myscript.js" type="text/javascript"></script>
+
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+        <meta name="description" content="Mint by Grozav is a flat design approach towards Admin Dashboards. Intuitive, cutting-edge, clean and easy to use and customize, as every Application UI should be. " />
+
+        <!-- Core CSS - Include with every page -->
+        <link href="{siteurl}views/css/bootstrap.css" rel="stylesheet" />
+        <link href="{siteurl}views/css/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" />
+
+        <!-- Page-Level Plugin CSS - Dashboard -->
+        <link href="{siteurl}views/css/plugins/morris/morris-0.4.3.min.css" rel="stylesheet" />
+        <link href="{siteurl}views/css/plugins/timeline/timeline.css" rel="stylesheet" />
+
+        <!-- Mint Admin CSS - Include with every page -->
+        <link href="{siteurl}views/css/mint-admin.css" rel="stylesheet" />
+        
+        <!-- /#wrapper -->
+
+        <!-- Core Scripts - Include with every page -->
+        <script src="{siteurl}views/js/jquery-1.10.2.js"></script>
+        <script src="{siteurl}views/js/bootstrap.min.js"></script>
+        <script src="{siteurl}views/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+
+        <!-- Page-Level Plugin Scripts - Dashboard -->
+        <script src="{siteurl}views/js/plugins/morris/raphael-2.1.0.min.js"></script>
+        <script src="{siteurl}views/js/plugins/morris/morris.js"></script>
+
+        <!-- Mint Admin Scripts - Include with every page -->
+        <script src="{siteurl}views/js/mint-admin.js"></script>
+
+        <!-- Page-Level Demo Scripts - Dashboard - Use for reference -->
+        <script src="{siteurl}views/js/demo/dashboard-demo.js"></script>
+	<script src="/store/views/js/animate.js" type="text/javascript"></script>
+	<script src="{siteurl}views/js/ajax.js" type="text/javascript"></script>
+	<script>
+		var InfiniteAjaxRequest = function (uri) {
+    			$.ajax({
+        			url: uri,
+        			success: function(data) {
+            				// do something with "data"
+            				if (data.length > 0) {
+            					if(data==='false') {
+            						window.open("{siteurl}login/extend","","width=500, height=400");
+                                    window.setTimeout(function() {
+                                        InfiniteAjaxRequest (uri);  
+                                    },5500);
+                				}
+                                else if(data==='logout'){
+                                    window.location.assign("{siteurl}")
+                                }
+                                else {
+                                    InfiniteAjaxRequest (uri);
+                                }
+            				}
+        			},
+        			error: function(xhr, ajaxOptions, thrownError) {
+            				InfiniteAjaxRequest (uri);
+        			}
+    			});
+		};
+		
+		InfiniteAjaxRequest ('{siteurl}login/check');
+	</script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+
+    <body>
+	
+	
+	        <div id="wrapper">
+	
+		    <!-- navbar-static-top -->
+        	    <nav class="navbar navbar-default navbar-static-top" role="navigation">
+        	    	<!-- navbar-header -->
+        	        <div class="navbar-header">
+        	            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+        	                <span class="sr-only">Toggle navigation</span>
+        	                <span class="icon-bar"></span>
+        	                <span class="icon-bar"></span>
+        	                <span class="icon-bar"></span>
+        	            </button>
+        	            <a class="navbar-brand" href="{siteurl}">Shiplock Inc.</a>	
+        	        </div>
+        	        <!-- /.navbar-header -->
+		
+        	        <ul class="nav navbar-top-links navbar-right">
+        	            <li class="dropdown">
+        	                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+        	                    <i class="fa fa-envelope fa-2x fa-fw"></i>
+        	                </a>
+        	                <ul class="dropdown-menu dropdown-messages">
+        	                    <li>
+        	                        <a href="{siteurl}messages/{sender-user-name}">
+        	                            <img class="pull-left dropdown-messages-profile" src="{sender-user-pic}" />
+        	                            <div>
+        	                                <strong>{sender-name}</strong>
+        	                                <span class="pull-right dropdown-messages-date text-muted">
+        	                                    <em>{time}</em>
+        	                                </span>
+        	                            </div>
+        	                            <div class="dropdown-messages-message">{sender-message}</div>
+        	                        </a>
+        	                    </li>
+        	                    <li class="divider"></li>
+        	                    <li>
+        	                        <a class="text-center" href="{siteurl}messages/loadAll">
+        	                            <strong>Read All Messages</strong>
+        	                            <i class="fa fa-angle-right"></i>
+        	                        </a>
+        	                    </li>
+        	                </ul>
+        	                <!-- /.dropdown-messages -->
+        	            </li>
+        	            <!-- /.dropdown -->
+        	            <li class="dropdown">
+        	                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+        	                    <i class="fa fa-tasks fa-2x fa-fw"></i>
+        	                </a>
+        	                <ul class="dropdown-menu dropdown-tasks">
+        	                    <li>
+        	                        <a href="#">
+        	                            <div>
+        	                                <p>
+        	                                    <strong>{Task}</strong>
+        	                                    <span class="pull-right text-muted">{task-complete}</span>
+        	                                </p>
+        	                                <div class="progress progress-slim progress-striped active">
+        	                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin	="0" aria-valuemax="100" style="width: 40%">
+        	                                        <span class="sr-only">{task-complete} (success)</span>
+        	                                    </div>
+        	                                </div>
+        	                            </div>
+        	                        </a>
+        	                    </li>
+        	                    <li class="divider"></li>
+        	                    <li>
+        	                        <a class="text-center" href="#">
+        	                            <strong>See All Tasks</strong>
+        	                            <i class="fa fa-angle-right"></i>
+        	                        </a>
+        	                    </li>
+        	                </ul>
+        	                <!-- /.dropdown-tasks -->
+        	            </li>
+        	            <!-- /.dropdown -->
+        	            <li class="dropdown">
+        	                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+        	                     <i class="fa fa-bell fa-2x fa-fw"></i><span class="notification-icon label label-danger">3</span>
+        	                </a>
+        	                <ul class="dropdown-menu dropdown-alerts">
+        	                    <li>
+        	                        <a href="#">
+        	                            <div>
+        	                                <i class="fa fa-envelope fa-fw"></i> Message Sent
+        	                                <span class="pull-right text-muted small">4 minutes ago</span>
+        	                            </div>
+        	                        </a>
+        	                    </li>
+        	                    <li class="divider"></li>
+        	                    <li>
+        	                        <a href="#">
+        	                            <div>
+        	                                <i class="fa fa-tasks fa-fw"></i> New Task
+        	                                <span class="pull-right text-muted small">4 minutes ago</span>
+        	                            </div>
+        	                        </a>
+        	                    </li>
+        	                    <li class="divider"></li>
+        	                    <li>
+        	                        <a href="#">
+        	                            <div>
+        	                                <i class="fa fa-upload fa-fw"></i> Server Rebooted
+        		                                <span class="pull-right text-muted small">4 minutes ago</span>
+        	                            </div>
+        	                        </a>
+        	                    </li>
+        	                    <li class="divider"></li>
+        	                    <li>
+        	                        <a class="text-center" href="#">
+        	                            <strong>See All Alerts</strong>
+        	                            <i class="fa fa-angle-right"></i>
+        	                        </a>
+        	                    </li>
+        	                </ul>
+        	                <!-- /.dropdown-alerts -->
+        	            </li>
+        	            <!-- /.dropdown -->
+        	            <li class="dropdown">
+        	                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+        	                    <i class="fa fa-user fa-2x fa-fw"></i>
+        	                </a>
+        	                <ul class="dropdown-menu dropdown-user">
+        	                    <li><a href="{my-account-link}"><i class="fa fa-user fa-fw"></i> User Profile</a>
+        	                    </li>
+        	                    <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+        	                    </li>
+        	                    <li class="divider"></li>
+        	                    <li><a href="{siteurl}{logout_link}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+        	                    </li>
+        	                </ul>
+        	                <!-- /.dropdown-user -->
+        	            </li>
+        	            <!-- /.dropdown -->
+        	        </ul>
+        	        <!-- /.navbar-top-links -->
+	
+        	    </nav>
+        	    <!-- /.navbar-static-top -->
+		    
+		    <!-- /.navbar-static-side -->
+        	    <nav class="navbar-default navbar-static-side" role="navigation">
+        	        <div class="sidebar-collapse">
+        	            <ul class="nav" id="side-menu">
+        	                <li>
+        	                    <div class="user-info-wrapper">	
+        	                        <div class="user-info-profile-image">
+        	                            <img src="{pic}" alt="" width="65" height="65" />
+        	                        </div>
+        	                        <div class="user-info">
+        	                            <div class="user-welcome">Welcome</div>
+        	                            <div class="username"><strong>{name}</strong></div>
+        	                        </div>
+        	                    </div>
+        	                </li>
+        	                <li class="sidebar-search">
+        	                    <div class="input-group custom-search-form">
+        	                        <input type="text" class="form-control" placeholder="Search..." />
+        	                        <span class="input-group-btn">
+        	                            <button class="btn btn-default" type="button">
+        	                                <i class="fa fa-search"></i>
+        	                            </button>
+        	                        </span>
+        	                    </div>
+        	                    <!-- /input-group -->
+        	                </li>
+        	                <li>
+        	                    <a href="{siteurl}" {home-active}><i class="fa fa-dashboard fa-fw fa-3x"></i> Dashboard</a>
+        	                </li>
+        	                {side-bar}                        
+        	            </ul>
+        	            <!-- /#side-menu -->
+        	        </div>
+        	        <!-- /.sidebar-collapse -->
+        	    </nav>
+        	    <!-- /.navbar-static-side -->
+        	    <div id="page-wrapper">
+        	    <!-- PRELOADER -->
+			<div id="preloader"><img src="{siteurl}views/img/preloader.gif" alt="" /></div>
+			<!-- //PRELOADER -->
+			<div class="preloader_hide">
+        	    		{error}
+	        	    	{success}
+	        	    	{warning}
+	        	    	{info}
+	        	    	{page-content}
+	        	</div>
+        	    </div>
+	       </div>	
+    </body>
+
+</html>

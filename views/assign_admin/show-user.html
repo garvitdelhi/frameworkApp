@@ -1,0 +1,85 @@
+<!-- START  user -->
+<div class="panel panel-default">
+	<div class="panel-heading">
+		{user-name}
+	</div>
+        <div class="panel-body">
+        	<p>
+                	Username : {user-username}
+		</p>
+                <p>
+                	Email : {user-email}                                	
+		</p>
+	</div>
+        <div class="panel-footer">
+        	<button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal_{user-username}">
+                	{assign-tag}
+		</button>
+		<!-- Modal -->
+		<div class="modal fade" id="myModal_{user-username}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                	<div class="modal-dialog">
+                        	<div class="modal-content">
+                                	<div class="modal-header">
+                                        	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                <h4 class="modal-title" id="myModalLabel-{user-username}">Confirm</h4>
+					</div>
+                                        <div id="modal-body_{user-username}" class="modal-body">
+                                        	{assign-tag} with username as <strong>{user-username}</strong> . Do you want to continue?
+                                        	<div id="modal-check-{user-username}"></div>
+                                        </div>
+					<div class="modal-footer">
+                                        	<button type="button" id = "cancel-{user-username}" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                                <button type="button" id="confirm_{user-username}" class="btn btn-primary">Confirm</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+                        <!-- /.modal-dialog -->
+		</div>
+                                <!-- /.modal -->
+	</div>
+	
+</div>
+<!-- START user -->
+
+<script>
+	$('#confirm_{user-username}').click(function() {
+		$('#myModalLabel-{user-username}').html('Confirm your Password');
+		var login = '<form id="confirm-button-{user-username}" action="javascript:submit_{user-username}();"><fieldset><div class="form-group"></div><div class="form-group"><input class="form-control" placeholder="Password" id="confirm-password-{user-username}" name="confirm-password" type="password" /></div><!-- Change this to a button or input when using this as a form --><input type="submit" class="btn btn-lg btn-primary btn-block" value="Confirm Password"/></form></fieldset>';
+		$('#modal-check-{user-username}').html(login).hide();
+		$('#modal-check-{user-username}').fadeIn('slow');
+		$('#confirm_{user-username}').hide();
+	});
+	$('#myModal_{user-username}').on('hidden.bs.modal', function() {
+		$('#myModalLabel-{user-username}').html('Confirm');
+		$('#modal-check-{user-username}').html('');
+		$('#confirm_{user-username}').show();
+		$('#error-passwrd-{user-username}').remove();
+	});
+	function submit_{user-username}() {
+		$('#myModal_{user-username}').modal({
+  			keyboard: false,
+  			backdrop: 'static'
+		});
+		$('#cancel-{user-username}').hide();
+		var user_details = {
+			'confirm-password' : $('#confirm-password-{user-username}').val(),
+			'user-email' : '{user-email}',
+			'user-username' : '{user-username}'
+		}
+		$('#error-passwrd-{user-username}').remove();
+		var modal_body_html = $('#modal-body_{user-username}').html();
+		$('#modal-body_{user-username}').html('<!-- PRELOADER --><div id="preloader"><img src="{siteurl}views/img/preloader.gif" alt="" /></div><!-- //PRELOADER --><div class="preloader_hide"></div>');
+  		ajax('{siteurl}assign_admin/confirmAndAssign',user_details).done(function(data) {
+  			$('#cancel-{user-username}').show();
+    		data = $.parseJSON(data);
+    		if(data.valid) {
+    			$('#modal-body_{user-username}').html(data.content);
+    		} else {
+    			content = modal_body_html + data.content;
+    			$('#modal-body_{user-username}').html(content);
+    		}
+  		});
+	}
+</script>
+

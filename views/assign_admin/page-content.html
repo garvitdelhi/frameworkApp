@@ -1,0 +1,30 @@
+
+<div class="col-lg-12">
+	<h3 class="page-header">Assign Admin</h3>
+</div>
+<div class="panel-body">
+	<div class="row">	
+		<div class="col-lg-6">
+				<div class="form-group input-group">
+					<input type="text" autocomplete='off' id="username" class="form-control" placeholder="Seach User with username or email-id"/>
+					<span class="input-group-btn">
+						<button class="btn btn-default" type="button">
+							<i class="fa fa-search"></i>
+						</button>
+					</span>
+				</div>
+		</div>
+	</div>	
+</div>
+<div id='user-show'>
+</div>
+
+<script>
+	$('#username').keyup(function(event){
+		$('#user-show').html('<!-- PRELOADER --><div id="preloader"><img src="{siteurl}views/img/preloader.gif" alt="" /></div><!-- //PRELOADER -->');
+		ajax('{siteurl}assign_admin/show',{'user':$('#username').val()}).done(function(data) {
+    			$("#user-show").html(data); 
+  		});
+	});
+	
+</script>

@@ -1,0 +1,130 @@
+<div class="col-lg-12">
+                        <h3 class="page-header">Cakes</h3>
+                    </div>
+ <div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs">
+                    <li><a href="{siteurl}cakes/"><i class="fa fa-home"></i>&nbsp;Home</a>
+                    </li>
+                    <li class="active"><a href="{siteurl}cakes/bulk" ><i class="fa fa-upload"></i>&nbsp;Bulk Upload</a>
+                    </li>
+                    <li><a href="{siteurl}cakes/products" ><i class="fa fa-edit"></i>&nbsp;Handel Products</a>
+                    </li>
+                    <li><a href="{siteurl}cakes/downloads" ><i class="fa fa-download"></i>&nbsp;Download Database</a>
+                    </li>
+                    <!--<li><a href="#settings" data-toggle="tab">Settings</a>
+                    </li>-->
+                </ul>
+
+                <div class="tab-content">
+                    <div class="tab-pane fade in active" id="home">
+                        <h4>Bulk Uploading</h4>
+                        On left upload CSV and on right upload respective images after uploading CSV's.
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+</div>
+<!-- /.row -->
+
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <!-- /.panel-heading -->
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                        <thead>
+                                            <tr>
+                                                <th>CSV UPLOADING</th>
+                                                <th>Images Uploading</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            
+                                            <tr class="gradeU">
+                                                <td>
+                                                    <!-- Tab panes -->
+                                                    <div class="tab-content">
+                                                        <div class="tab-pane fade in active" id="home">
+                                                            <p>
+                                                                <form role="form" method="post" enctype="multipart/form-data" action="{siteurl}cakes/bulk/upload"/>
+                                                                    <div class="form-group" id="options-form-{user-username}">
+                                                                        <br>
+                                                                        <label>Select Option</label>
+                                                                        <div class="radio">
+                                                                            <label>
+                                                                                <input type="radio" name="option" value="add" checked=""/>Add New Product.
+                                                                            </label>
+                                                                        </div>
+                                                                        <div class="radio">
+                                                                            <label>
+                                                                                <input type="radio" name="option" value="overwrite" />Overwrite Previous Products.
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label>File input</label> (* Only csv file accepted.)
+                                                                        <input type="file" name="cakes" required/>
+                                                                    </div>
+                                                                    <input name="upload-button" type="submit" class="btn btn-default" value="Upload" />
+                                                                </form>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <!-- Tab panes -->
+                                                    <div class="tab-content">
+                                                        <div class="tab-pane fade in active" id="home">
+                                                            <p>
+                                                                <form id="image-form" role="form" method="post" enctype="multipart/form-data" action="{siteurl}cakes/images"/>
+                                                                    <div class="form-group">
+                                                                        <label>Select Files</label> (* Only .jpg, .png, .jpeg file accepted.)
+                                                                        <input id="im" type="file" name="images[]" multiple required/>
+                                                                    </div>
+                                                                    <input name="upload_images" type="submit" class="btn btn-default" value="Upload" />
+                                                                </form>
+                                                                <div id="error"></div>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- /.panel-body -->
+                        </div>
+                        <!-- /.panel -->
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+
+                <script type="text/javascript">
+                    var config = ['jpg', 'jpeg', 'png'];
+                    $('#image-form').submit(function(e){
+                        $.map($('#im').get(0).files, function(file) {
+                             if($.inArray(file.name.split('\.')[1], config) === -1) {
+                                $('#error').html('<div class="text-danger">Selected files are not of type jpg, png or jpeg</div>')
+                                e.preventDefault();
+                                return false;
+                             }
+                        });
+                        return true;
+                    });
+                </script>
+
+                
+            

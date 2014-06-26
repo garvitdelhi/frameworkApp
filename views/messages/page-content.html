@@ -1,0 +1,61 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h3 class="page-header">Messages</a></h3>
+        <a href="{siteurl}messages/new" class="text-primary"><button class="btn btn-outline btn-success btn-lg btn-block">New Message</button></a>
+        <br>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+	<div class="row">
+    	<div class="col-lg-12">
+        	<div class="panel panel-default">
+            	<div class="panel-body">
+                	<h3>Recieved Messages</h3>
+                    <div class="table-responsive">
+                    	<table class="table table-bordered table-striped">
+                        	<thead>
+                            	<tr>
+                                	<th>Sender</th>
+                                   	<th>Subject</th>
+                                    <th>Message</th>
+								</tr>
+							</thead>
+                            <tbody>
+                            	{recieved-messages}
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+       	<!-- /.col-lg-12 -->
+	</div>
+<!-- /.row -->
+
+<!-- /.row -->
+	<div class="row">
+    	<div class="col-lg-12">
+        	<div class="panel panel-default">
+            	<div class="panel-body">
+                	<h3>Sent Messages</h3>
+                    <div class="table-responsive">
+                    	<table class="table table-bordered table-striped">
+                        	<thead>
+                            	<tr>
+                                	<th>Reciever</th>
+                                   	<th>Subject</th>
+                                    <th>Message</th>
+								</tr>
+							</thead>
+                            <tbody>
+                            	{sent-messages}
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+       	<!-- /.col-lg-12 -->
+	</div>
+<!-- /.row -->

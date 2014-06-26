@@ -1,0 +1,389 @@
+<!--<script>
+/*
+var my = function(a,b) {
+	console.log(a+b);
+};
+my.b = 'hello';
+console.log(my('hey'));
+
+var a = function() {
+	console.log(arguments[0]);
+	console.log(this);
+};
+
+a('hey');
+
+//using arguments and setting context
+var	tolog = ['log this', 
+		'this',
+		'this as well'],
+	func = function() {
+		console.log('context is ' + this);
+		for(i=0;i<arguments.length;i++) {
+			console.log(arguments[i]);
+		}
+	};
+
+func.apply('this string is my context',tolog);*
+
+var myfunc = function(array, fun) {
+	for(i=0;i<array.length;i++) {
+		fun.apply(array[i],['index is', i]);
+	}
+};
+
+myfunc([42,35,26,12], function(one,two) {
+	console.log('my array value is : ' + this);
+	console.log(arguments.length);
+	console.log(one + ' ' + two);
+});
+*/
+</script>
+
+<!doctype html>
+<html>
+<head>
+    <script>
+    /*
+    // Attempting to access an element too early will have unexpected results.
+    var title = document.getElementById( "hello-world" );
+    console.log( title );
+    a = false?5:6;
+    ab = ['hey',1,2,5,];
+    cd = [5,6,4,5];
+    e = ab.concat(cd);
+    //alert(e);
+    
+    (function() {
+    	var foo = "Hello world";
+    	console.log(foo);
+	})();
+    	/*
+    	var myName = "the global object";
+	var sayHello = function() {
+    		console.log( "Hi! My name is " + this.myName );
+	};
+	var myObject = {
+    		myName: "Rebecca"
+	};
+	var myObjectHello = sayHello.bind( myObject );
+	sayHello();      // "Hi! My name is the global object"
+	myObjectHello();
+    *
+    	var myNamespace = {
+    		myObject: {
+        		sayHello: function() {
+            			console.log( "Hi! My name is " + this.myName );
+        		},
+        		myName: "Rebecca"
+    		}
+	};
+ 
+	var hello = myNamespace.myObject.sayHello; 
+	hello();*/
+    </script>
+    <script src="views/js/jquery.min.js" type="text/javascript"></script>
+    <script src="views/js/jquery-1.10.2.js"></script>
+    <script>
+    	//myNamespace.myObject.sayHello();
+    	$(document).ready(function(){
+    		var title = document.getElementById( "hello-world" );
+    		console.log( title );
+    	});
+    </script>
+</head>
+<body>
+ 
+<h1 id="hello-world">Hello World</h1>
+ 
+</body>
+</html>->
+<html>
+<head>
+    <script src="views/js/jquery.min.js" type="text/javascript"></script>
+    <script>
+    /*
+    $( document ).ready(function() {
+    	$('.hey').click(function(){
+    		$('.hey').val('u changed me');
+    	});
+        $('button').click(function() {
+        	if($('button').html() === '<b>Show Me</b>') {
+        		$('button').html('<b>Hide Me</b>');
+        		$('a').attr({
+        			href: '#Changed_World'
+        		});
+        		$('#first').show();
+        	}
+        	else {
+        		$('button').html('<b>Show Me</b>');
+        		$('a').attr({
+        			href: '#Hello_World'
+        		});
+        		$('p').remove();
+        		$('#first').hide();
+        	}
+        });
+    });
+ 
+    $( window ).load(function() {
+        console.log( "window loaded" );
+    });
+    	/*
+	$.each([ "foo", "bar", "baz" ], function( idx, val, ar ) {
+    		console.log( "element " + idx + " is " + val );
+    		console.log(ar);
+	});
+ 
+	$.each({ foo: "bar", baz: "bim" }, function( k, v ) {
+    		console.log( k + " : " + v );
+	});*
+	
+	var firstObject = { foo: "bar", a: "b" };
+	var secondObject = { foo: "baz" };
+ 
+	var newObject = $.extend( {}, firstObject, secondObject );
+ 
+	console.log( firstObject.foo ); // "baz"
+	console.log( newObject.foo ); // "baz"*
+
+	$( "#clickme" ).click(function() {
+  $( "#book" ).animate({
+    opacity: 0.25,
+    left: "+=50",
+    height: "toggle"
+  }, 5000, function() {
+    // Animation complete.
+  });
+});  *
+	$(document).ready(function() {
+		$( "#other" ).click(function() {
+  			$( "input" ).blur();
+		});
+		$( ".targeth" ).change(function() {
+			if($('.targeth').val() === 'option1') {
+  				$( this ).css( "display", "inline" ).fadeOut( 'fast' );
+  			}
+		});
+		
+		
+		
+		
+		
+		
+		$( "#target" ).select(function() {
+  			alert( "Handler for .select() called." );	
+		});
+
+	});
+  */
+    </script>
+</head>
+<body>
+<form>
+  <input class="target" type="text" value="Field 1"><span style="display:none;">Here</span>
+  <select class="targeth">
+    <option value="option1" selected="selected">Option 1</option>
+    <option value="option2">Option 2</option>
+  </select>
+</form>
+<div id="other">
+  Trigger the handler
+</div>
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>change demo</title>
+  <style>
+  div {
+    color: red;
+  }
+  </style>
+  
+</head>
+<body>
+ 
+<select name="sweets" multiple="multiple">
+  <option>Chocolate</option>
+  <option selected="selected">Candy</option>
+  <option>Taffy</option>
+  <option selected="selected">Caramel</option>
+  <option>Fudge</option>
+  <option>Cookie</option>
+</select>
+<div></div>
+ 
+<script>
+$( "select" ).change(function () {
+    	var str = "";
+    	$( "select option:selected" ).each(function() {
+      		str += $( this ).text() + " ";
+    	});
+    	$( "div" ).text( str );
+}).change();
+
+</script>
+
+</script>
+ <!-
+<form class="checkout_form clearfix" id="formId" action="http://localhost/store/login/signup/submit" method="post">
+            
+            <div class="checkout_form_input first_name">
+              <label>Email <span class="color_red">*</span></label>
+              <input type="text" id="email" name="email" value="" placeholder="you@yourmail.com" />
+            </div>
+            
+            <div class="checkout_form_input last_name">
+              <label>Username<span class="color_red">*</span></label>
+              <input type="text" id="username" name="username" value="" placeholder="Username" />
+            </div>
+            
+            <div class="checkout_form_input phone">
+              <label>Password <span class="color_red">*</span></label>
+              <input type="password" id="password_hash" name="password_hash" value="" placeholder="password" />
+            </div>
+            
+            <div class="checkout_form_input last E-mail">
+              <label>Confirm Password <span class="color_red">*</span></label>
+              <input type="password" id="confirm_password" name="confirm_password" value="" placeholder="confirm your password" />
+            </div>
+            
+            <hr class="clear">
+            
+            <div class="checkout_form_input sity">
+              <label>Name <span class="color_red">*</span></label>
+              <input type="text" id="name-uid" name="name" value="" placeholder="Your Name" />
+            </div>
+            
+            <div class="checkout_form_input territory">
+              <label>Date Of Birth</label>
+              <input type="text" name="dob" value="" placeholder="dd/mm/yyyy" />
+            </div>
+            
+            <div class="checkout_form_input country">
+              <label>Gender </label>
+              <select class="basic" name='gender'>
+                <option>Male</option>
+                <option>Female</option>
+              </select>
+            </div>
+            
+            <div class="clear"></div>
+            
+            <input type="submit" id='signup_submit' name="signup_submit" value="Submit" />
+            <br><a class="btn inactive" href="{siteurl}login/" >Login</a>
+          </form>-->
+
+
+</body>
+</html>
+
+
+
+
+<script src="views/js/jquery.min.js" type="text/javascript"></script>
+<form id="formId" class="checkout_form clearfix" action="http://localhost/store/login/signup/submit" method="post">
+            
+            <div class="checkout_form_input first_name">
+              <label>Email <span class="color_red">*</span></label>
+              <input type="text" name="email" value="" placeholder="you@yourmail.com" required/>
+            </div>
+            
+            <div class="checkout_form_input last_name">
+              <label>Username<span class="color_red">*</span></label>
+              <input type="text" name="username" value="" placeholder="Username" required/>
+            </div>
+            
+            <div class="checkout_form_input phone">
+              <label>Password <span class="color_red">*</span></label>
+              <input type="password" name="password_hash" value="" placeholder="password" required/>
+            </div>
+            
+            <div class="checkout_form_input last E-mail">
+              <label>Confirm Password <span class="color_red">*</span></label>
+              <input type="password" name="confirm_password" value="" placeholder="confirm your password" required/>
+            </div>
+            
+            <hr class="clear">
+            
+            <div class="checkout_form_input sity">
+              <label>Name <span class="color_red">*</span></label>
+              <input type="text" name="name" value="" placeholder="Your Name" required/>
+            </div>
+            
+            <div class="checkout_form_input territory">
+              <label>Date Of Birth</label>
+              <input type="text" id="dob" name="dob" value="" placeholder="dd/mm/yyyy" />
+            </div>
+            
+            <div class="checkout_form_input country">
+              <label>Gender </label>
+              <select class="basic" name='gender'>
+                <option>Male</option>
+                <option>Female</option>
+              </select>
+            </div>
+            
+            <div class="clear"></div>
+            
+            <input type='submit' name='signup_submit' value='Submit' class="btn active pull-right">
+            <br><a class="btn inactive" href="{siteurl}login/" >Login</a>
+          </form>
+
+
+          <script type="text/javascript">
+
+          function ajax(urlpassed,dynamicData) {
+            return $.ajax({
+              url: urlpassed,
+              type: "post",
+              data: dynamicData
+            });
+          }
+          $(function(){
+    console.log('hey');
+      function submita(){
+        var i = Math.floor((Math.random() * 10000) + 1);
+        $("input[name|='email']").val('email' + i + '@test.us');
+        $("input[name|='username']").val('test'+i);
+        $("input[name|='password_hash']").val('passwd' + i);
+        $("input[name|='confirm_password']").val('passwd' + i);
+        $("input[name|='name']").val('name'+i);
+        setTimeout(function() {
+          mywindow = window.open();
+          $('#formId').attr('target',mywindow)
+          $("input[name|='signup_submit']").click();
+         //ajax('http://localhost/store/login/signup/submit',$fn.serializeObject()).done(function(data) {
+          //console.log(data);
+         //});
+         mywindow.close();
+          //submita();
+        },1000);
+      }
+      submita();
+      
+      $fn = $("#formId");
+      $fn.serializeObject = function()
+      {
+        var o = {};
+      var a = this.serializeArray();
+    $.each(a, function() {
+        if (o[this.name] !== undefined) {
+            if (!o[this.name].push) {
+                o[this.name] = [o[this.name]];
+            }
+            o[this.name].push(this.value || '');
+        } else {
+            o[this.name] = this.value || '';
+        }
+    });
+    return o;
+    };
+
+    console.log($fn.serializeObject());
+  });
+
+</script>
