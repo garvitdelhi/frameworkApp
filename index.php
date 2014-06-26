@@ -13,7 +13,7 @@ try {
 	$registry->createAndStoreObject('authenticate','auth');
 	$registry->createAndStoreObject('passwordHash','hash');
 	$registry->createAndStoreObject('mail','mail');
-	$registry->getObject('db')->newConnection('localhost','database_connect','dbstore123!@#','store');
+	$registry->getObject('db')->newConnection('host','user','password','database');
 	$settingsSQL = "SELECT * FROM backend_settings WHERE 1=1";
 	$registry->getObject('db')->executeQuery($settingsSQL);
 	
